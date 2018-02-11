@@ -33,10 +33,29 @@ export class ScaleService {
   	CHROMATICSCALE[positionOfTonic].inKey = true;
   	CHROMATICSCALE[positionOfTonic].positionInKey = 1;
 
- //todo :
  	let positionOfSecond = CHROMATICSCALE.indexOf(this.calculateSecond(tonic, mode));
  	CHROMATICSCALE[positionOfSecond].inKey = true;
  	CHROMATICSCALE[positionOfSecond].positionInKey = 2;
+
+ 	let positionOfThird = CHROMATICSCALE.indexOf(this.calculateThird(CHROMATICSCALE[positionOfSecond], mode));
+ 	CHROMATICSCALE[positionOfThird].inKey = true;
+ 	CHROMATICSCALE[positionOfThird].positionInKey = 3;
+
+ 	let positionOfFourth = CHROMATICSCALE.indexOf(this.calculateFourth(CHROMATICSCALE[positionOfThird], mode));
+ 	CHROMATICSCALE[positionOfFourth].inKey = true;
+ 	CHROMATICSCALE[positionOfFourth].positionInKey = 4;
+
+ 	let positionOfFifth = CHROMATICSCALE.indexOf(this.calculateFifth(CHROMATICSCALE[positionOfFourth], mode));
+ 	CHROMATICSCALE[positionOfFifth].inKey = true;
+ 	CHROMATICSCALE[positionOfFifth].positionInKey = 5;
+
+ 	let positionOfSixth = CHROMATICSCALE.indexOf(this.calculateSixth(CHROMATICSCALE[positionOfFifth], mode));
+ 	CHROMATICSCALE[positionOfSixth].inKey = true;
+ 	CHROMATICSCALE[positionOfSixth].positionInKey = 6;
+
+ 	let positionOfSeventh = CHROMATICSCALE.indexOf(this.calculateSeventh(CHROMATICSCALE[positionOfSixth], mode));
+ 	CHROMATICSCALE[positionOfSeventh].inKey = true;
+ 	CHROMATICSCALE[positionOfSeventh].positionInKey = 7;
 
   }
 
@@ -69,6 +88,51 @@ export class ScaleService {
   	}
   	else{
   		return this.getNextTone(tonic);
+  	}
+  }
+
+  calculateThird(second: Note, mode: Mode):Note{
+  	if(mode.intervalSequence[1] == 's'){
+  		return this.getNextSemiTone(second);
+  	}
+  	else{
+  		return this.getNextTone(second);
+  	}
+  }
+
+  calculateFourth(third: Note, mode: Mode):Note{
+  	if(mode.intervalSequence[2] == 's'){
+  		return this.getNextSemiTone(third);
+  	}
+  	else{
+  		return this.getNextTone(third);
+  	}
+  }
+
+  calculateFifth(fourth: Note, mode: Mode):Note{
+  	if(mode.intervalSequence[3] == 's'){
+  		return this.getNextSemiTone(fourth);
+  	}
+  	else{
+  		return this.getNextTone(fourth);
+  	}
+  }
+
+  calculateSixth(fifth: Note, mode: Mode):Note{
+  	if(mode.intervalSequence[4] == 's'){
+  		return this.getNextSemiTone(fifth);
+  	}
+  	else{
+  		return this.getNextTone(fifth);
+  	}
+  }
+
+  calculateSeventh(sixth: Note, mode: Mode):Note{
+  	if(mode.intervalSequence[5] == 's'){
+  		return this.getNextSemiTone(sixth);
+  	}
+  	else{
+  		return this.getNextTone(sixth);
   	}
   }
 
