@@ -1,0 +1,7 @@
+<select [(ngModel)]="selectedNote" >
+	<option *ngFor="let note of notes" [ngValue]="note" (click)="setSelectedNote(note)">{{note.name}}</option>
+</select>
+
+<select [(ngModel)]="selectedMode" >
+	<option *ngFor="let mode of modes" [ngValue]="mode" (click)="setSelectedMode(mode)">{{mode.name}}</option>
+</select>

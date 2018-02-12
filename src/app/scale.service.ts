@@ -9,10 +9,23 @@ import { MODES } from './modes';
 @Injectable()
 export class ScaleService {
 
-  constructor() { }
+	selectedNote: Note;
+	selectedMode: Mode;
+
+  constructor() {
+  	this.selectedMode = MODES[0]; 
+  }
 
   getChromaticScale(){
   	return CHROMATICSCALE;
+  }
+
+  getSelectedNote(){
+  	return this.selectedNote;
+  }
+
+  getSelectedMode(){
+  	return this.selectedMode;
   }
 
   resetChromaticScale(){
@@ -28,34 +41,36 @@ export class ScaleService {
 
   generateMode(tonic: Note, mode: Mode){
   	this.resetChromaticScale();
-  	let positionOfTonic = CHROMATICSCALE.indexOf(tonic);
 
-  	CHROMATICSCALE[positionOfTonic].inKey = true;
-  	CHROMATICSCALE[positionOfTonic].positionInKey = 1;
+  	this.selectedNote = tonic;
+  	this.selectedMode = mode;
 
- 	let positionOfSecond = CHROMATICSCALE.indexOf(this.calculateSecond(tonic, mode));
- 	CHROMATICSCALE[positionOfSecond].inKey = true;
- 	CHROMATICSCALE[positionOfSecond].positionInKey = 2;
+  	tonic.inKey = true;
+  	tonic.positionInKey = 1;
 
- 	let positionOfThird = CHROMATICSCALE.indexOf(this.calculateThird(CHROMATICSCALE[positionOfSecond], mode));
- 	CHROMATICSCALE[positionOfThird].inKey = true;
- 	CHROMATICSCALE[positionOfThird].positionInKey = 3;
+ 	let second = this.calculateSecond(tonic, mode);
+ 	second.inKey = true;
+ 	second.positionInKey = 2;
 
- 	let positionOfFourth = CHROMATICSCALE.indexOf(this.calculateFourth(CHROMATICSCALE[positionOfThird], mode));
- 	CHROMATICSCALE[positionOfFourth].inKey = true;
- 	CHROMATICSCALE[positionOfFourth].positionInKey = 4;
+ 	let third = this.calculateThird(second, mode);
+ 	third.inKey = true;
+ 	third.positionInKey = 3;
 
- 	let positionOfFifth = CHROMATICSCALE.indexOf(this.calculateFifth(CHROMATICSCALE[positionOfFourth], mode));
- 	CHROMATICSCALE[positionOfFifth].inKey = true;
- 	CHROMATICSCALE[positionOfFifth].positionInKey = 5;
+ 	let fourth = this.calculateFourth(third, mode);
+ 	fourth.inKey = true;
+ 	fourth.positionInKey = 4;
 
- 	let positionOfSixth = CHROMATICSCALE.indexOf(this.calculateSixth(CHROMATICSCALE[positionOfFifth], mode));
- 	CHROMATICSCALE[positionOfSixth].inKey = true;
- 	CHROMATICSCALE[positionOfSixth].positionInKey = 6;
+ 	let fifth = this.calculateFifth(fourth, mode);
+ 	fifth.inKey = true;
+ 	fifth.positionInKey = 5;
 
- 	let positionOfSeventh = CHROMATICSCALE.indexOf(this.calculateSeventh(CHROMATICSCALE[positionOfSixth], mode));
- 	CHROMATICSCALE[positionOfSeventh].inKey = true;
- 	CHROMATICSCALE[positionOfSeventh].positionInKey = 7;
+ 	let sixth = this.calculateSixth(fifth, mode);
+ 	sixth.inKey = true;
+ 	sixth.positionInKey = 6;
+
+ 	let seventh = this.calculateSeventh(sixth, mode);
+ 	seventh.inKey = true;
+ 	seventh.positionInKey = 7;
 
   }
 

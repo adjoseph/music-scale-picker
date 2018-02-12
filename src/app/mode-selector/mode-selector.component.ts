@@ -1,14 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Note } from '../note';
-import { Mode } from '../mode';
+import { Mode } from '../mode'
+
+
 
 @Component({
-  selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css']
+  selector: 'app-mode-selector',
+  templateUrl: './mode-selector.component.html',
+  styleUrls: ['./mode-selector.component.css']
 })
-export class NotesComponent implements OnInit {
+export class ModeSelectorComponent implements OnInit {
 
 	@Input() notes: Note[];
 	@Input() modes: Mode[];
@@ -26,9 +28,11 @@ export class NotesComponent implements OnInit {
   	return this.selectedNote;
   }
 
-  getSelectedMode(){
+   getSelectedMode(){
   	return this.selectedMode;
   }
+
+  
 
   setSelectedNote(note: Note){
   	this.selectedNote = note;
@@ -39,5 +43,6 @@ export class NotesComponent implements OnInit {
   	this.selectedMode = mode;
   	this.selectedModeChange.emit(this.selectedMode)
   }
+
 
 }

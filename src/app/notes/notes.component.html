@@ -1,5 +1,5 @@
 <ul>
-	<li *ngFor="let note of notes" (click)="generateMode(note)">
+	<li *ngFor="let note of notes" (click)="setSelectedNote(note)">
 		<span>{{note.name}} {{note.positionInKey}}</span>
 	</li>
 </ul>
