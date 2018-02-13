@@ -1,0 +1,54 @@
+ul {
+	column-count: 12;
+	list-style-type: none;
+}
+
+
+li {
+	border-width: 2px;
+	border-style: solid;
+	padding: 10px;
+}
+
+div{
+	text-align: center;
+}
+
+.chromatic{
+	background-color: grey;
+}
+
+.tonic{
+	background-color: red;
+	border-width: 4px;
+}
+
+.second{
+	background-color: orange;
+	border-width: 3px;
+}
+
+.third{
+	background-color: yellow;
+	border-width: 3px;
+}
+
+.fourth{
+	background-color: green;
+	border-width: 3px;
+}
+
+.fifth{
+	background-color: cyan;
+	border-width: 3px;
+}
+
+.sixth{
+	background-color: lightblue;
+	border-width: 3px;
+}
+
+.seventh{
+	background-color: purple;
+	border-width: 3px;
+}

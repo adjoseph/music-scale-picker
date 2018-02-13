@@ -1,5 +1,16 @@
 <ul>
-	<li *ngFor="let note of notes" (click)="setSelectedNote(note)">
-		<span>{{note.name}} {{note.positionInKey}}</span>
+	<li *ngFor="let note of notes" (click)="setSelectedNote(note)"
+		[ngClass]="{'chromatic': !note.inKey,
+					'tonic': (note.positionInKey==1),
+					'second': (note.positionInKey==2),
+					'third': (note.positionInKey==3),
+					'fourth': (note.positionInKey==4),
+					'fifth': (note.positionInKey==5),
+					'sixth': (note.positionInKey==6),
+					'seventh': (note.positionInKey==7)}">
+		<span>
+			<div>{{note.name}} </div>
+			<div>{{note.positionInKey}}</div>
+		</span>
 	</li>
 </ul>
