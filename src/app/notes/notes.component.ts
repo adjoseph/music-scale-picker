@@ -40,4 +40,9 @@ export class NotesComponent implements OnInit {
   	this.selectedModeChange.emit(this.selectedMode)
   }
 
+  setSelectedNoteAndMode(note:Note, mode:Mode){
+    this.setSelectedNote(note);
+    this.setSelectedMode(mode);
+  }
+
 }

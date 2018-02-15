@@ -32,6 +32,7 @@ export class ScaleService {
   	for (let i = 0; i < CHROMATICSCALE.length; i++){
   		CHROMATICSCALE[i].inKey=false;
   		CHROMATICSCALE[i].positionInKey=0;
+      CHROMATICSCALE[i].relativeMode=null;
   	}
   }
 
@@ -47,31 +48,48 @@ export class ScaleService {
 
   	tonic.inKey = true;
   	tonic.positionInKey = 1;
+    tonic.relativeMode = mode;
 
  	let second = this.calculateSecond(tonic, mode);
  	second.inKey = true;
  	second.positionInKey = 2;
+  second.relativeMode = this.getNextSequentialMode(mode);
 
  	let third = this.calculateThird(second, mode);
  	third.inKey = true;
  	third.positionInKey = 3;
+  third.relativeMode = this.getNextSequentialMode(second.relativeMode);
 
  	let fourth = this.calculateFourth(third, mode);
  	fourth.inKey = true;
  	fourth.positionInKey = 4;
+  fourth.relativeMode = this.getNextSequentialMode(third.relativeMode);
 
  	let fifth = this.calculateFifth(fourth, mode);
  	fifth.inKey = true;
  	fifth.positionInKey = 5;
+  fifth.relativeMode = this.getNextSequentialMode(fourth.relativeMode);
 
  	let sixth = this.calculateSixth(fifth, mode);
  	sixth.inKey = true;
  	sixth.positionInKey = 6;
+  sixth.relativeMode = this.getNextSequentialMode(fifth.relativeMode);
 
  	let seventh = this.calculateSeventh(sixth, mode);
  	seventh.inKey = true;
  	seventh.positionInKey = 7;
+  seventh.relativeMode = this.getNextSequentialMode(sixth.relativeMode);
 
+  }
+
+  getNextSequentialMode(mode: Mode):Mode{
+    let position = MODES.indexOf(mode);
+    if (position == MODES.length-1){
+      return MODES[0]
+    }
+    else{
+      return MODES[position+1]
+    }
   }
 
   getNextSemiTone(note: Note):Note{

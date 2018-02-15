@@ -10,7 +10,7 @@ export const MODES: Mode[] = [
 	{name: 'Locrian', intervalSequence: 'sTTsTTT', description: 'minor key with b2 and b5'}
 ]
 
-//the description is what notes (relative to tonic) that distinguish the mode from the relative major/minor
+//the description is what notes (relative to tonic) that distinguish the mode from the parallel major/minor
 //for example, C Lydian is different from Cmajor (ionian) because it has a flat seventh
 
-//todo: calculate parallel modes in scale service
+//calculate relative modes in scale service

@@ -1,17 +1,21 @@
 ul {
-	column-count: 12;
 	list-style-type: none;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
 }
 
 
-li {
+li{
 	border-width: 2px;
 	border-style: solid;
-	padding: 10px;
 }
 
 div{
 	text-align: center;
+}
+
+button{
+	font-size: 7px
 }
 
 .chromatic{

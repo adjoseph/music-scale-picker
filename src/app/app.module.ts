@@ -8,6 +8,7 @@ import { ScaleService } from './scale.service';
 import { NotesComponent } from './notes/notes.component';
 import { ModeSelectorComponent } from './mode-selector/mode-selector.component';
 import { ScaleGeneratorComponent } from './scale-generator/scale-generator.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ScaleGeneratorComponent } from './scale-generator/scale-generator.compo
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [ScaleService],
   bootstrap: [AppComponent]
