@@ -5,13 +5,14 @@ ul {
 }
 
 
-li{
+li div{
 	border-width: 2px;
 	border-style: solid;
 }
 
-div{
+li div span{
 	text-align: center;
+	display: block;
 }
 
 button{

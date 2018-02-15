@@ -1,6 +1,7 @@
 <ul>
-	<li *ngFor="let note of notes" (click)="setSelectedNote(note)"
-		[ngClass]="{'chromatic': !note.inKey,
+	<li *ngFor="let note of notes">
+		<div (click)="setSelectedNote(note)"
+		 [ngClass]="{'chromatic': !note.inKey,
 					'tonic': (note.positionInKey==1),
 					'second': (note.positionInKey==2),
 					'third': (note.positionInKey==3),
@@ -8,11 +9,11 @@
 					'fifth': (note.positionInKey==5),
 					'sixth': (note.positionInKey==6),
 					'seventh': (note.positionInKey==7)}">
-		<span>
-			<div>{{note.name}} </div>
-			<div>{{note.positionInKey}}</div>
-		</span>
+			<span> {{note.name}}</span>
+			<span>{{note.positionInKey}}</span>
+		
 		<button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey"> Shift tonic to {{note.name}} {{note.relativeMode.name}} </button>
-		<button (click)="showChord(note)"> Show Chord </button>
+		</div>
+		<button *ngIf="note.inKey" (click)="showChord(note)"> Show Chord </button>
 	</li>
 </ul>
