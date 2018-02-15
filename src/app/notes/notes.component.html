@@ -12,6 +12,7 @@
 			<div>{{note.name}} </div>
 			<div>{{note.positionInKey}}</div>
 		</span>
-		<button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey">Shift tonic to {{note.name}} {{note.relativeMode.name}}</button>
+		<button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey"> Shift tonic to {{note.name}} {{note.relativeMode.name}} </button>
+		<button (click)="showChord(note)"> Show Chord </button>
 	</li>
 </ul>

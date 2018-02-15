@@ -1,2 +1,2 @@
-<app-notes [notes]="notes" [modes]="modes" [(selectedNote)]="selectedNote" [(selectedMode)]="selectedMode"></app-notes>
-<app-mode-selector [notes]="notes" [modes]="modes" [(selectedNote)]="selectedNote" [(selectedMode)]="selectedMode"></app-mode-selector>
+<app-notes [notes]="notes" [modes]="modes" [(selectedNote)]="selectedNote" [(selectedMode)]="selectedMode" [(chordRoot)]="chordRoot" (selectedNoteChange)="generateMode()" (selectedModeChange)="generateMode()"></app-notes>
+<app-mode-selector [notes]="notes" [modes]="modes" [(selectedNote)]="selectedNote" [(selectedMode)]="selectedMode" (selectedNoteChange)="generateMode()" (selectedModeChange)="generateMode()"></app-mode-selector>

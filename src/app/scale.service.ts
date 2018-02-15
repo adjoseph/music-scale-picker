@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+
 import { Note } from './note';
 import {CHROMATICSCALE} from './chromatic-scale';
 
@@ -16,12 +19,12 @@ export class ScaleService {
   	this.selectedMode = MODES[0]; 
   }
 
-  getChromaticScale(){
-  	return CHROMATICSCALE;
+  getChromaticScale(): Observable<Note[]>{
+  	return of(CHROMATICSCALE);
   }
 
-  getSelectedNote(){
-  	return this.selectedNote;
+  getSelectedNote(): Observable<Note>{
+  	return of(this.selectedNote);
   }
 
   getSelectedMode(){
@@ -167,6 +170,28 @@ export class ScaleService {
   	else{
   		return this.getNextTone(sixth);
   	}
+  }
+
+
+  generateChord(root: Note):Note[]{
+    let chord = [root]
+    for(let i=0; i < 7; i++){
+      chord.push(this.getNextDiatonicThird(chord[i]))
+    }
+    console.log(chord) //todo this hangs
+    return chord;
+  }
+
+  getNextDiatonicThird(note:Note):Note{
+    let second = this.getNextDiatonicSecond(note)
+    return this.getNextDiatonicSecond(second);
+  }
+
+  getNextDiatonicSecond(note:Note):Note{
+    if(this.getNextSemiTone(note).inKey)
+      return this.getNextSemiTone(note);
+    else
+      return this.getNextTone(note);
   }
 
 }

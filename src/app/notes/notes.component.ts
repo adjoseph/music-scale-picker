@@ -17,6 +17,9 @@ export class NotesComponent implements OnInit {
 	@Input() selectedMode: Mode;
 	@Output() selectedModeChange: EventEmitter<any> = new EventEmitter();
 
+  @Input() chordRoot: Note;
+  @Output() chordRootChange: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
  ngOnInit() {
@@ -43,6 +46,11 @@ export class NotesComponent implements OnInit {
   setSelectedNoteAndMode(note:Note, mode:Mode){
     this.setSelectedNote(note);
     this.setSelectedMode(mode);
+  }
+
+  showChord(root:Note){
+    this.chordRoot = root;
+    this.chordRootChange.emit(this.chordRoot)
   }
 
 }

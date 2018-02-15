@@ -9,6 +9,7 @@ import { NotesComponent } from './notes/notes.component';
 import { ModeSelectorComponent } from './mode-selector/mode-selector.component';
 import { ScaleGeneratorComponent } from './scale-generator/scale-generator.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ChordDisplayComponent } from './chord-display/chord-display.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     NotesComponent,
     ModeSelectorComponent,
-    ScaleGeneratorComponent
+    ScaleGeneratorComponent,
+    ChordDisplayComponent
   ],
   imports: [
     BrowserModule,
