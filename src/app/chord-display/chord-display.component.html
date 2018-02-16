@@ -1,3 +1,15 @@
-<p>
-  chord-display works!
-</p>
+<div>
+	Chord: {{chord[0].note.name}}
+	<span *ngIf="chord[1].quality == 'major' && chord[2].quality == 'minor'">
+		major
+	</span>
+	<span *ngIf="chord[1].quality == 'major' && chord[2].quality == 'major'">
+		augmented
+	</span>
+	<span *ngIf="chord[1].quality == 'minor' && chord[2].quality == 'minor'">
+		diminished
+	</span>
+	<span *ngIf="chord[1].quality == 'minor' && chord[2].quality == 'major'">
+		minor
+	</span>
+</div>

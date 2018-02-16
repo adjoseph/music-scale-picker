@@ -9,6 +9,8 @@ import {CHROMATICSCALE} from './chromatic-scale';
 import { Mode } from './mode';
 import { MODES } from './modes';
 
+import { Chord } from './chord';
+
 @Injectable()
 export class ScaleService {
 
@@ -173,25 +175,30 @@ export class ScaleService {
   }
 
 
-  generateChord(root: Note):Note[]{
-    let chord = [root]
+  generateChord(root: Note):Chord[]{
+    let chord = []
+    let first = new Chord(root, '')
+    chord.push(first)
     for(let i=0; i < 7; i++){
       chord.push(this.getNextDiatonicThird(chord[i]))
     }
-    console.log(chord) //todo this hangs
     return chord;
   }
 
-  getNextDiatonicThird(note:Note):Note{
+  getNextDiatonicThird(note:Chord):Chord{
     let second = this.getNextDiatonicSecond(note)
-    return this.getNextDiatonicSecond(second);
+    let third = this.getNextDiatonicSecond(second)
+    if(second.quality=='major' && third.quality== 'major')
+      return new Chord(third.note, 'major');
+    else
+      return new Chord(third.note, 'minor');
   }
 
-  getNextDiatonicSecond(note:Note):Note{
-    if(this.getNextSemiTone(note).inKey)
-      return this.getNextSemiTone(note);
+  getNextDiatonicSecond(note:Chord):Chord{
+    if(this.getNextSemiTone(note.note).inKey)
+      return new Chord(this.getNextSemiTone(note.note), 'minor');
     else
-      return this.getNextTone(note);
+      return new Chord(this.getNextTone(note.note), 'major');
   }
 
 }

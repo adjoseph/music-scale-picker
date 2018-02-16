@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Note } from '../note';
-import { Mode } from '../mode'
+import { Mode } from '../mode';
+import { Chord } from '../chord';
 
 import {ScaleService} from '../scale.service';
 
 import { NotesComponent } from '../notes/notes.component';
 import { ModeSelectorComponent } from '../mode-selector/mode-selector.component';
+import { ChordDisplayComponent } from '../chord-display/chord-display.component'
 
 @Component({
   selector: 'app-scale-generator',
@@ -21,6 +23,7 @@ export class ScaleGeneratorComponent implements OnInit {
 	selectedMode: Mode;
 
 	chordRoot: Note;
+	chord: Chord[];
 
   constructor(private scaleService: ScaleService) { }
 
@@ -45,11 +48,13 @@ export class ScaleGeneratorComponent implements OnInit {
 	generateMode(): void{
 		if(this.selectedNote)
 			this.scaleService.generateMode(this.selectedNote, this.selectedMode);
+		this.chordRoot = null;
+		this.chord = null;
 	}
 
 	generateChord(): void{
 		if(this.chordRoot)
-			this.scaleService.generateChord(this.chordRoot);
+			this.chord = this.scaleService.generateChord(this.chordRoot);
 	}
 
 }
