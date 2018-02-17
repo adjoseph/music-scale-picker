@@ -6,6 +6,6 @@
 	<option *ngFor="let mode of modes" [ngValue]="mode" (click)="setSelectedMode(mode)">{{mode.name}}</option>
 </select>
 
-<button *ngIf="selectedNote" (click)="setSelectedNote(selectedNote)">Go</button>
+<button *ngIf="selectedNote" (click)="setSelectedNoteAndMode(selectedNote, selectedMode)">GO</button>
 
 <div *ngIf="selectedNote">{{selectedNote.name}} {{selectedMode.description}}</div>
