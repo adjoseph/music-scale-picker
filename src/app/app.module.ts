@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatSelectModule, MatOptionModule, MatFormFieldModule, MatCardModule} from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { ScaleService } from './scale.service';
@@ -22,7 +25,13 @@ import { ChordDisplayComponent } from './chord-display/chord-display.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    MatButtonModule, 
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    MatCardModule,
     AppRoutingModule
   ],
   providers: [ScaleService],

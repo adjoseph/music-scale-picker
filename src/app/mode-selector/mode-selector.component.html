@@ -1,11 +1,15 @@
-<select [(ngModel)]="selectedNote" >
-	<option *ngFor="let note of notes" [ngValue]="note" (click)="setSelectedNote(note)">{{note.name}}</option>
-</select>
+<mat-form-field>
+<mat-select [(ngModel)]="selectedNote" >
+	<mat-option *ngFor="let note of notes" [value]="note" (click)="setSelectedNote(note)">{{note.name}}</mat-option>
+</mat-select>
+</mat-form-field>
 
-<select [(ngModel)]="selectedMode" >
-	<option *ngFor="let mode of modes" [ngValue]="mode" (click)="setSelectedMode(mode)">{{mode.name}}</option>
-</select>
+<mat-form-field>
+<mat-select [(ngModel)]="selectedMode" >
+	<mat-option *ngFor="let mode of modes" [value]="mode" (click)="setSelectedMode(mode)">{{mode.name}}</mat-option>
+</mat-select>
+</mat-form-field>
 
-<button *ngIf="selectedNote" (click)="setSelectedNoteAndMode(selectedNote, selectedMode)">GO</button>
+<button mat-button *ngIf="selectedNote" (click)="setSelectedNoteAndMode(selectedNote, selectedMode)">GO</button>
 
 <div *ngIf="selectedNote">{{selectedNote.name}} {{selectedMode.description}}</div>

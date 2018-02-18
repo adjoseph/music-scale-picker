@@ -1,6 +1,6 @@
 <ul>
 	<li *ngFor="let note of notes">
-		<div (click)="setSelectedNote(note)"
+		<mat-card (click)="setSelectedNote(note)"
 		 [ngClass]="{'chromatic': !note.inKey,
 					'tonic': (note.positionInKey==1),
 					'second': (note.positionInKey==2),
@@ -11,9 +11,11 @@
 					'seventh': (note.positionInKey==7)}">
 			<span> {{note.name}}</span>
 			<span>{{note.positionInKey}}</span>
+
+		</mat-card>
 		
-		<button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey"> Shift tonic to {{note.name}} {{note.relativeMode.name}} </button>
-		</div>
-		<button *ngIf="note.inKey" (click)="showChord(note)"> Show Chord </button>
+		<button mat-raised-button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey"> Shift tonic</button>
+		
+		<button mat-raised-button *ngIf="note.inKey" (click)="showChord(note)"> Show Chord </button>
 	</li>
 </ul>
