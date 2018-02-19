@@ -17,6 +17,7 @@ li mat-card{
 	min-width: 0;
 	border-width: 2px;
 	border-style: solid;
+	transition: background-color 1s ease;
 }
 
 li mat-card span{
@@ -29,43 +30,47 @@ button{
 	max-width: 100%;
 	font-size: 7px;
 	text-align: center;
+	margin: 3px;
 }
 
 .chromatic{
-	background-color: grey;
+	background-color: #ede7f6; /* super light deep purple */
 }
 
 .tonic{
-	background-color: red;
+	background-color: #4d2c91; /* dark deep purple */
 	border-width: 10px;
+}
+.tonic span {
+		color: #ffffff;
 }
 
 .second{
-	background-color: orange;
+	background-color: #c7a4ff; /* lighter deep purple */
 	border-width: 3px;
 }
 
 .third{
-	background-color: yellow;
+	background-color: #b085f5; /* light deep purple */
 	border-width: 3px;
 }
 
 .fourth{
-	background-color: green;
+	background-color: #c7a4ff; /* lighter deep purple */
 	border-width: 3px;
 }
 
 .fifth{
-	background-color: cyan;
+	background-color: #b085f5; /* light deep purple */
 	border-width: 3px;
 }
 
 .sixth{
-	background-color: lightblue;
+	background-color: #c7a4ff; /* lighter deep purple */
 	border-width: 3px;
 }
 
 .seventh{
-	background-color: purple;
+	background-color: #b085f5; /* light deep purple */
 	border-width: 3px;
 }

@@ -10,6 +10,4 @@
 </mat-select>
 </mat-form-field>
 
-<button mat-button *ngIf="selectedNote" (click)="setSelectedNoteAndMode(selectedNote, selectedMode)">GO</button>
-
 <div *ngIf="selectedNote">{{selectedNote.name}} {{selectedMode.description}}</div>

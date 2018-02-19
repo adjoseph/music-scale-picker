@@ -10,12 +10,12 @@
 					'sixth': (note.positionInKey==6),
 					'seventh': (note.positionInKey==7)}">
 			<span> {{note.name}}</span>
-			<span>{{note.positionInKey}}</span>
+			<span *ngIf="note.inKey">{{note.positionInKey}}</span>
 
 		</mat-card>
 		
 		<button mat-raised-button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey"> Shift tonic</button>
 		
-		<button mat-raised-button *ngIf="note.inKey" (click)="showChord(note)"> Show Chord </button>
+		<button mat-raised-button *ngIf="note.inKey" (click)="showChord(note)"> Chord </button>
 	</li>
 </ul>
