@@ -9,7 +9,17 @@
 					'fifth': (note.positionInKey==5),
 					'sixth': (note.positionInKey==6),
 					'seventh': (note.positionInKey==7)}">
-			<span> {{note.name}}</span>
+			<span class="name">
+				<span *ngIf="note.name.length==1" class="natural"> 
+					{{note.name}}
+				</span>
+				<span *ngIf="note.name.length!=1" class="sharp">
+					{{note.name[0]}}{{note.name[1]}}
+				</span>
+				<span *ngIf="note.name.length!=1" class="flat">
+					{{note.name[3]}}{{note.name[4]}}
+				</span>
+			</span>
 			<span *ngIf="note.inKey">{{note.positionInKey}}</span>
 
 		</mat-card>

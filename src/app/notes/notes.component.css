@@ -18,12 +18,29 @@ li mat-card{
 	border-width: 2px;
 	border-style: solid;
 	transition: background-color 1s ease;
+
+	cursor: pointer;
+
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
 }
 
 li mat-card span{
 	text-align: center;
-	display: block;
 }
+
+.name{
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+}
+
+.sharp{
+	grid-row-start: 1;
+}
+.flat{
+	grid-row-start: 2;
+}
+
 
 button{
 	min-width: 0;
