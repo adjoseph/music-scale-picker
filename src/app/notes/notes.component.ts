@@ -20,6 +20,8 @@ export class NotesComponent implements OnInit {
   @Input() chordRoot: Note;
   @Output() chordRootChange: EventEmitter<any> = new EventEmitter();
 
+  @Input() guitar: Boolean;
+
   constructor() { }
 
  ngOnInit() {

@@ -1,0 +1,17 @@
+#instructionMessage{
+	padding: 5px;
+	text-align: center;
+}
+
+app-notes{
+	padding-top: 10px;
+}
+
+app-chord-display{
+	padding: 10px;
+}
+
+app-mode-selector{
+	padding: 10px;
+	text-align: center;
+}

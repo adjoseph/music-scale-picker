@@ -12,8 +12,8 @@ import { ChordDisplayComponent } from '../chord-display/chord-display.component'
 
 @Component({
   selector: 'app-scale-generator',
-  templateUrl: './scale-generator.component.html',
-  styleUrls: ['./scale-generator.component.css']
+  templateUrl: './guitar-neck-generator.component.html',
+  styleUrls: ['./guitar-neck-generator.component.css']
 })
 export class GuitarNeckGeneratorComponent implements OnInit {
 
