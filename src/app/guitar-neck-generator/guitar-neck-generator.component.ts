@@ -11,7 +11,7 @@ import { ModeSelectorComponent } from '../mode-selector/mode-selector.component'
 import { ChordDisplayComponent } from '../chord-display/chord-display.component'
 
 @Component({
-  selector: 'app-scale-generator',
+  selector: 'app-guitar-neck-generator',
   templateUrl: './guitar-neck-generator.component.html',
   styleUrls: ['./guitar-neck-generator.component.css']
 })

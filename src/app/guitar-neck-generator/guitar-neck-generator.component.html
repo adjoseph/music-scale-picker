@@ -1,10 +1,8 @@
-<!-- <ul>
-    <li *ngFor="let string of strings"> -->
-        <app-notes [notes]="notes" [modes]="modes" [guitar]="true" [(selectedNote)]="selectedNote" [(selectedMode)]="selectedMode" [(chordRoot)]="chordRoot" 
-        (selectedNoteChange)="generateMode()" (selectedModeChange)="generateMode()" (chordRootChange)="generateChord()">
-        </app-notes>
-    <!-- </li>
-</ul> -->
+
+<app-strings [notes]="notes" [modes]="modes" [stringsNumber]="6" [(selectedNote)]="selectedNote" [(selectedMode)]="selectedMode" [(chordRoot)]="chordRoot" 
+(selectedNoteChange)="generateMode()" (selectedModeChange)="generateMode()" (chordRootChange)="generateChord()">
+</app-strings>
+
 
 
 <h1 id="instructionMessage" *ngIf="!selectedNote">Select a note to show {{selectedMode.name}} scale</h1>

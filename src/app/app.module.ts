@@ -9,6 +9,7 @@ import {MatButtonModule, MatSelectModule, MatOptionModule, MatFormFieldModule, M
 import { AppComponent } from './app.component';
 import { ScaleService } from './scale.service';
 import { NotesComponent } from './notes/notes.component';
+import { StringsComponent } from './strings/strings.component';
 import { ModeSelectorComponent } from './mode-selector/mode-selector.component';
 import { ScaleGeneratorComponent } from './scale-generator/scale-generator.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -19,6 +20,7 @@ import { GuitarNeckGeneratorComponent } from './guitar-neck-generator/guitar-nec
   declarations: [
     AppComponent,
     NotesComponent,
+    StringsComponent,
     ModeSelectorComponent,
     ScaleGeneratorComponent,
     ChordDisplayComponent,

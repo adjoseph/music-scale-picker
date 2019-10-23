@@ -98,26 +98,28 @@ export class ScaleService {
   }
 
   getNextSemiTone(note: Note):Note{
-  	let position = CHROMATICSCALE.indexOf(note);
-  	if (position == CHROMATICSCALE.length-1){
-  		return CHROMATICSCALE[0]
-  	}
-  	else{
-  		return CHROMATICSCALE[position+1]
-  	}
+  	// let position = CHROMATICSCALE.indexOf(note);
+  	// if (position == CHROMATICSCALE.length-1){
+  	// 	return CHROMATICSCALE[0]
+  	// }
+  	// else{
+  	// 	return CHROMATICSCALE[position+1]
+	  // }
+	  return Note.getNextSemitone(note);
   }
 
   getNextTone(note: Note):Note{
-  	let position = CHROMATICSCALE.indexOf(note);
-  	if (position == CHROMATICSCALE.length-2){
-  		return CHROMATICSCALE[0];
-  	}
-  	else if (position == CHROMATICSCALE.length-1){
-  		return CHROMATICSCALE[1];
-  	}
-  	else{
-  		return CHROMATICSCALE[position+2];
-  	}
+  	// let position = CHROMATICSCALE.indexOf(note);
+  	// if (position == CHROMATICSCALE.length-2){
+  	// 	return CHROMATICSCALE[0];
+  	// }
+  	// else if (position == CHROMATICSCALE.length-1){
+  	// 	return CHROMATICSCALE[1];
+  	// }
+  	// else{
+  	// 	return CHROMATICSCALE[position+2];
+	  // }
+	  return Note.getNextTone(note);
   }
 
   calculateSecond(tonic: Note, mode: Mode):Note{

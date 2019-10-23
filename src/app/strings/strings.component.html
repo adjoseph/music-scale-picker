@@ -1,0 +1,37 @@
+<!-- <ul [ngClass]="{'guitar': !note.guitar}"> -->
+<ul>
+	<li *ngFor="let string of strings" class="string">
+			<ul class="note">
+				<li *ngFor="let note of notes">
+					<mat-card (click)="setSelectedNote(note)"
+						[ngClass]="{'chromatic': !note.inKey,
+								'tonic': (note.positionInKey==1),
+								'second': (note.positionInKey==2),
+								'third': (note.positionInKey==3),
+								'fourth': (note.positionInKey==4),
+								'fifth': (note.positionInKey==5),
+								'sixth': (note.positionInKey==6),
+								'seventh': (note.positionInKey==7)}">
+						<span class="name">
+							<span *ngIf="note.name.length==1" class="natural"> 
+								{{note.name}}
+							</span>
+							<span *ngIf="note.name.length!=1" class="sharp">
+								{{note.name[0]}}{{note.name[1]}}
+							</span>
+							<span *ngIf="note.name.length!=1" class="flat">
+								{{note.name[3]}}{{note.name[4]}}
+							</span>
+						</span>
+						<span *ngIf="note.inKey">{{note.positionInKey}}</span>
+			
+					</mat-card>
+					
+					<button mat-raised-button (click)="setSelectedNoteAndMode(note,note.relativeMode)" *ngIf="note.inKey"> Shift tonic</button>
+					
+					<button mat-raised-button *ngIf="note.inKey" (click)="showChord(note)"> Chord </button>
+				</li>
+			</ul>
+			
+	</li>
+</ul>

@@ -6,10 +6,10 @@ import { GuitarNeckGeneratorComponent } from './guitar-neck-generator/guitar-nec
 
 const routes: Routes = [
 	{ path: 'scale-generator', component: ScaleGeneratorComponent },
-	{ path: '', redirectTo: 'scale-generator', pathMatch: 'full'},
-	{ path: '**', redirectTo: 'scale-generator', pathMatch: 'full'}
+	{ path: '', redirectTo: 'guitar-neck-generator', pathMatch: 'full'},
+	{ path: '**', redirectTo: 'scale-generator', pathMatch: 'full'},
 	//{ path: 'scale-generator/:selectedNote', component: ScaleGeneratorComponent }, //todo
-	//{ path: 'guitar-neck-generator', component: GuitarNeckGeneratorComponent }
+	{ path: 'guitar-neck-generator', component: GuitarNeckGeneratorComponent }
 
 ];
 
