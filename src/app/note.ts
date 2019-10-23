@@ -5,6 +5,7 @@ export class Note {
 	inKey: boolean;
 	positionInKey: number;
 	relativeMode: Mode;
+	guitar: boolean;
 }
 
 //relativeMode describes which mode, with this note as the tonic, preserves the current key signature. 

@@ -1,4 +1,4 @@
-<ul>
+<ul [ngClass]="{'guitar': !note.guitar}">
 	<li *ngFor="let note of notes">
 		<mat-card (click)="setSelectedNote(note)"
 		 [ngClass]="{'chromatic': !note.inKey,

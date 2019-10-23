@@ -13,6 +13,7 @@ import { ModeSelectorComponent } from './mode-selector/mode-selector.component';
 import { ScaleGeneratorComponent } from './scale-generator/scale-generator.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ChordDisplayComponent } from './chord-display/chord-display.component';
+import { GuitarNeckGeneratorComponent } from './guitar-neck-generator/guitar-neck-generator.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ChordDisplayComponent } from './chord-display/chord-display.component';
     NotesComponent,
     ModeSelectorComponent,
     ScaleGeneratorComponent,
-    ChordDisplayComponent
+    ChordDisplayComponent,
+    GuitarNeckGeneratorComponent
   ],
   imports: [
     BrowserModule,
