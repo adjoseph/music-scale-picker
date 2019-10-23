@@ -2,7 +2,7 @@
 <ul>
 	<li *ngFor="let string of strings" class="string">
 			<ul class="note">
-				<li *ngFor="let note of notes">
+				<li *ngFor="let note of string.chromaticScale">
 					<mat-card (click)="setSelectedNote(note)"
 						[ngClass]="{'chromatic': !note.inKey,
 								'tonic': (note.positionInKey==1),

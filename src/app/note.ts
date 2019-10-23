@@ -34,13 +34,29 @@ export class Note {
 		}
 	}
 
-	static getPerfectFourth(note: Note): Note {
-		//debugger;
-		for (let i = 0; i < 5; i++) {
+	static getNSemitones(note: Note, n: number): Note {
+		for (let i = 0; i < n; i++) {
 			note = this.getNextSemitone(note);
 		}
 
 		return note;
+	}
+
+	static getPerfectFourth(note: Note): Note {
+		return Note.getNSemitones(note, 5);
+	}
+
+	static getChromaticScaleStartingFromNote(note: Note): Note[] {
+		let nextNote = note;
+		let stringChromaticScale: Note[] = [];
+        stringChromaticScale.push(nextNote);
+
+        for (let i = 1; i < CHROMATICSCALE.length; i++) {
+          nextNote = Note.getNextSemitone(nextNote);
+          stringChromaticScale.push(nextNote);
+		}
+		
+		return stringChromaticScale;
 	}
 }
 

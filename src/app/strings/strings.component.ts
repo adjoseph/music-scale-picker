@@ -25,26 +25,30 @@ export class StringsComponent implements AfterContentInit {
 
   @Input() stringsNumber: number;
   lowString: Note;
-  strings: Note[] = [];
+  strings: InstrumentString[] = [];
 
   constructor() { }
 
   ngAfterContentInit() {
     
+    let stringChromaticScale: Note[] = [];
+
     CHROMATICSCALE.forEach((note: Note) => {
       if (note.name == 'E') {
-        this.lowString = note
+        this.lowString = note;
+
+        stringChromaticScale = Note.getChromaticScaleStartingFromNote(note);
       }
     }) 
    
-    //this.lowString = {name: 'E', inKey: false, positionInKey: 0, relativeMode: null, guitar: false};
-    this.strings.push(this.lowString)
+    this.strings.push({openNote: this.lowString, chromaticScale: stringChromaticScale})
 
     let currentString: Note = this.lowString;
 
     for (let i = 1; i < this.stringsNumber; i++) {
       currentString = Note.getPerfectFourth(currentString)
-      this.strings.push(currentString)
+      stringChromaticScale = Note.getChromaticScaleStartingFromNote(currentString);
+      this.strings.push({openNote: currentString, chromaticScale: stringChromaticScale})
     }
   }
 
