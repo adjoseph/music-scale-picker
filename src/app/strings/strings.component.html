@@ -1,6 +1,6 @@
 <!-- <ul [ngClass]="{'guitar': !note.guitar}"> -->
-<ul>
-	<li *ngFor="let string of strings" class="string">
+<ul class="string">
+	<li *ngFor="let string of strings" >
 			<ul class="note">
 				<li *ngFor="let note of string.chromaticScale">
 					<mat-card (click)="setSelectedNote(note)"
